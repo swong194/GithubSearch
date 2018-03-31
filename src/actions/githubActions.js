@@ -10,9 +10,9 @@ export const receiveProfile = profile => {
   };
 };
 
-export const fetchProfile = username => {
+export const fetchProfile = username => dispatch => {
   return GithubAPIUtil.fetchProfile(username).then(
-    profile => receiveProfile(profile),
-    error => receiveErrors(error)
+    profile => dispatch(receiveProfile(profile.data)),
+    errors => dispatch(receiveErrors([errors.response.request.statusText]))
   );
 };
