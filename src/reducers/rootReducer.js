@@ -1,9 +1,6 @@
 import { combineReducers } from "redux";
+import entitiesReducer from "./entitiesReducer";
 
-const rootReducer = () => {
-  return {
-    entities: {}
-  };
-};
-
-export default rootReducer;
+export default combineReducers({
+  entities: entitiesReducer
+});
