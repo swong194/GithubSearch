@@ -12,7 +12,10 @@ export const receiveProfile = profile => {
 
 export const fetchProfile = username => dispatch => {
   return GithubAPIUtil.fetchProfile(username).then(
-    profile => dispatch(receiveProfile(profile.data)),
+    profile => {
+      dispatch(receiveProfile(profile.data));
+      return profile.data;
+    },
     errors => dispatch(receiveErrors([errors.response.request.statusText]))
   );
 };

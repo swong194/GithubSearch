@@ -14,9 +14,10 @@ export default class Search extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props
-      .fetchProfile(this.state.username)
-      .then(this.setState({ username: "" }));
+    this.props.fetchProfile(this.state.username).then(profile => {
+      this.setState({ username: "" });
+      this.props.history.push(`/profiles/${profile.id}`);
+    });
   }
 
   render() {
