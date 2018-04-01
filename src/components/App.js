@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 import SearchContainer from "./search/SearchContainer";
 import ProfileContainer from "./profile/ProfileContainer";
+import FollowersContainer from "./followers/FollowersContainer";
 
 const App = ({ store }) => {
   return (
@@ -11,6 +12,7 @@ const App = ({ store }) => {
         <main>
           <Route path="/" component={SearchContainer} />
           <Route path="/profiles/:profileId" component={ProfileContainer} />
+          <Route path="/profiles/:profileId" component={FollowersContainer} />
         </main>
       </BrowserRouter>
     </Provider>

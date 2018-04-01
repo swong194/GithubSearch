@@ -21,18 +21,19 @@ export const fetchProfile = username => dispatch => {
   );
 };
 
-export const receiveFollowers = followers => {
+export const receiveFollowers = (userId, followers) => {
   return {
     type: RECEIVE_FOLLOWERS,
-    followers
+    followers,
+    userId
   };
 };
 
-export const fetchFollowers = (username, page) => dispatch => {
+export const fetchFollowers = (userId, username, page) => dispatch => {
   return GithubAPIUtil.fetchFollowers(username, page).then(
     followers => {
-      dispatch(receiveFollowers(followers));
-      return followers;
+      dispatch(receiveFollowers(userId, followers.data));
+      return followers.data;
     },
     errors => dispatch(receiveErrors([errors.response.request.statusText]))
   );

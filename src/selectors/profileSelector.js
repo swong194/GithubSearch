@@ -18,3 +18,9 @@ export const selectPage = (state, ownProps) => {
   }
   return { page, nextPage };
 };
+
+export const selectFollowers = (state, ownProps) => {
+  const followers =
+    state.entities.followers[ownProps.match.params.profileId] || [];
+  return followers;
+};
