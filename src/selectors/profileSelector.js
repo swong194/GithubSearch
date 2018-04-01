@@ -7,16 +7,17 @@ export const selectProfile = (state, ownProps) => {
 export const selectPage = (state, ownProps) => {
   const page = state.entities.pages[ownProps.match.params.profileId] || null;
   let nextPage;
+  let maxPage;
   if (page) {
     // checks if maxPage
-    const maxPage = Math.floor(
+    maxPage = Math.ceil(
       state.entities.profiles[ownProps.match.params.profileId].followers / 20
     );
     if (page !== maxPage) {
       nextPage = page + 1;
     }
   }
-  return { page, nextPage };
+  return { page, nextPage, maxPage };
 };
 
 export const selectFollowers = (state, ownProps) => {
