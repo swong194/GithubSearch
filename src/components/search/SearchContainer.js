@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Search from "./Search";
-
+import { receivePage } from "../../actions/pageActions";
 import { fetchProfile } from "../../actions/githubActions";
 
 const mapStateToProps = state => {
@@ -9,7 +9,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchProfile: username => dispatch(fetchProfile(username))
+    fetchProfile: username => dispatch(fetchProfile(username)),
+    receivePage: (userId, page) => dispatch(receivePage(userId, page))
   };
 };
 
