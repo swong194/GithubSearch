@@ -1,0 +1,21 @@
+.saved {
+    height: calc(100vh - 100px);
+    background-color: black;
+    padding: 10px;
+    color: white;
+}
+
+.saved a {
+    text-decoration: none;
+    color: white;
+    margin: 5px 0;
+}
+
+.saved a:hover{
+    text-decoration: underline;
+}
+
+.saved div {
+    display: flex;
+    flex-direction: column;
+}
