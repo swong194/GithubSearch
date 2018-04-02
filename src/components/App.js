@@ -15,7 +15,7 @@ const App = ({ store }) => {
           <Route path="/" component={SearchContainer} />
           <section className="main">
             <Route path="/" component={SavedContainer} />
-            <section>
+            <section className="profile_section">
               <Route path="/profiles/:profileId" component={ProfileContainer} />
               <Route
                 path="/profiles/:profileId"
