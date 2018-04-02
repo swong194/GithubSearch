@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Followers.css";
 
 export default class Followers extends Component {
   constructor(props) {
@@ -16,19 +17,27 @@ export default class Followers extends Component {
     const { id, login, nextPage, maxPage, page } = this.props;
     if (maxPage === page) return;
     this.props
-      .fetchFollowers(id, login, page + 1)
-      .then(this.props.receivePage(id, page + 1));
+      .fetchFollowers(id, login, nextPage)
+      .then(this.props.receivePage(id, nextPage));
   }
 
   render() {
+    const button =
+      this.props.maxPage === this.props.page ? null : (
+        <button onClick={this.handleLoad}>Load More</button>
+      );
     return (
       <section>
-        <button onClick={this.handleLoad}>Load More</button>
-        {this.props.followers.map(follower => (
-          <div key={follower.id}>
-            <img src={follower.avatar_url} alt="avatar" />
-          </div>
-        ))}
+        {button}
+        <div className="followers">
+          {this.props.followers.map(follower => (
+            <div key={follower.id}>
+              <a href={follower.html_url} target="_blank">
+                <img src={follower.avatar_url} alt="avatar" />
+              </a>
+            </div>
+          ))}
+        </div>
       </section>
     );
   }
