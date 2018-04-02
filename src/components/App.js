@@ -5,6 +5,7 @@ import SearchContainer from "./search/SearchContainer";
 import ProfileContainer from "./profile/ProfileContainer";
 import FollowersContainer from "./followers/FollowersContainer";
 import SavedContainer from "./saved/SavedContainer";
+import Welcome from "./welcome/Welcome";
 import "./App.css";
 
 const App = ({ store }) => {
@@ -16,6 +17,7 @@ const App = ({ store }) => {
           <section className="main">
             <Route path="/" component={SavedContainer} />
             <section className="profile_section">
+              <Route exact path="/" component={Welcome} />
               <Route path="/profiles/:profileId" component={ProfileContainer} />
               <Route
                 path="/profiles/:profileId"
