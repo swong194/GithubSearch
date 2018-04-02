@@ -7,7 +7,7 @@
     background-color: lightblue;
     margin: 20px auto;
     border-radius: 5px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .profile > div {
@@ -25,4 +25,14 @@
 
 .profile p {
     text-align: center;
+}
+
+.profile a {
+    text-decoration: none;
+    text-decoration: underline;
+    color: black;
+}
+
+.profile a:hover {
+    text-decoration: none;
 }
