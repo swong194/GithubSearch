@@ -38,6 +38,13 @@ export default class Followers extends Component {
     if (!this.props.login) {
       return null;
     }
+    const loader = this.props.loading ? (
+      <div className="spinner">
+        <div className="bounce1" />
+        <div className="bounce2" />
+        <div className="bounce3" />
+      </div>
+    ) : null;
     return (
       <section>
         <h2 className="text-center">{this.props.login}'s Followers</h2>
@@ -51,6 +58,7 @@ export default class Followers extends Component {
             </div>
           ))}
         </div>
+        {loader}
         <button className={buttonClass} onClick={this.handleLoad}>
           Load More
         </button>

@@ -12,13 +12,15 @@ const mapStateToProps = (state, ownProps) => {
   const followers = selectFollowers(state, ownProps);
   const { page, nextPage, maxPage } = selectPage(state, ownProps);
   const { id, login } = selectProfile(state, ownProps);
+  const loading = state.ui.loading;
   return {
     followers,
     page,
     nextPage,
     id,
     login,
-    maxPage
+    maxPage,
+    loading
   };
 };
 

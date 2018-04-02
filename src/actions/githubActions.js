@@ -1,5 +1,6 @@
 import * as GithubAPIUtil from "../utils/GithubAPIUtil";
 import { receiveErrors } from "./errorActions";
+import { receiveLoading, removeLoading } from "./loadingActions";
 
 export const RECEIVE_PROFILE = "RECEIVE_PROFILE";
 export const RECEIVE_FOLLOWERS = "RECEIVE_FOLLOWERS";
@@ -30,11 +31,16 @@ export const receiveFollowers = (userId, followers) => {
 };
 
 export const fetchFollowers = (userId, username, page) => dispatch => {
+  dispatch(receiveLoading());
   return GithubAPIUtil.fetchFollowers(username, page).then(
     followers => {
+      dispatch(removeLoading());
       dispatch(receiveFollowers(userId, followers.data));
       return followers.data;
     },
-    errors => dispatch(receiveErrors([errors.response.request.statusText]))
+    errors => {
+      dispatch(removeLoading());
+      dispatch(receiveErrors([errors.response.request.statusText]));
+    }
   );
 };
