@@ -37,7 +37,7 @@ export default class Followers extends Component {
       this.props.maxPage === this.props.page ? "no_load" : "load_button";
     return (
       <section>
-        <h2 className="text-center">{this.props.login} Followers</h2>
+        <h2 className="text-center">{this.props.login}'s Followers</h2>
         <div className="followers">
           {this.props.followers.map(follower => (
             <div key={follower.id}>
