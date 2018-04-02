@@ -9,8 +9,21 @@
     cursor: pointer;
 }
 
-
 .followers img {
     width: 70px;
     border-radius: 50%;
 }
+
+.followers p {
+    position: absolute;
+    background: bisque;
+    border-radius: 5px;
+    margin-top: -20px;
+    padding: 5px;
+    display: none;
+}
+
+.followers div:hover p{
+    display: block;
+}
+

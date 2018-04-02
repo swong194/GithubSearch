@@ -15,7 +15,7 @@ export default class Search extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.fetchProfile(this.state.username).then(profile => {
-      this.props.receivePage(profile.id, 1);
+      this.props.receivePage(profile.id, null);
       this.setState({ username: "" });
       this.props.history.push(`/profiles/${profile.id}`);
     });

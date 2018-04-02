@@ -8,8 +8,19 @@ export default class Followers extends Component {
   }
 
   componentDidMount() {
-    const { id, login, page } = this.props;
-    this.props.fetchFollowers(id, login, page);
+    const { id, login, nextPage } = this.props;
+    this.props
+      .fetchFollowers(id, login, nextPage)
+      .then(this.props.receivePage(id, nextPage));
+  }
+
+  componentWillReceiveProps(newProps) {
+    const { id, login, page, nextPage } = newProps;
+    if (id !== this.props.id && page === null) {
+      newProps
+        .fetchFollowers(id, login, nextPage)
+        .then(this.props.receivePage(id, nextPage));
+    }
   }
 
   handleLoad(e) {
@@ -32,6 +43,7 @@ export default class Followers extends Component {
         <div className="followers">
           {this.props.followers.map(follower => (
             <div key={follower.id}>
+              <p>{follower.login}</p>
               <a href={follower.html_url} target="_blank">
                 <img src={follower.avatar_url} alt="avatar" />
               </a>
