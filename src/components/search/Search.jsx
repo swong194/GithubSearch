@@ -29,6 +29,7 @@ export default class Search extends Component {
   render() {
     return (
       <section className="search">
+        <h2>Github Search by Sunny Wong</h2>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

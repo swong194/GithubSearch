@@ -4,5 +4,7 @@
 }
 
 .profile_section {
-    width: calc(100% - 200px);
+    width: calc(100vw - 200px);
+    height: calc(100vh - 75px);
+    overflow-y: scroll;
 }
