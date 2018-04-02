@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router";
 import "./Profile.css";
 
 export default class Profile extends Component {
   render() {
     const { login, avatar_url, followers } = this.props.profile;
     if (!login) {
-      return <Redirect to="/" />;
+      return <div className="text-center">Profile has not been found</div>;
     }
     return (
       <section className="profile">

@@ -35,6 +35,9 @@ export default class Followers extends Component {
   render() {
     const buttonClass =
       this.props.maxPage === this.props.page ? "no_load" : "load_button";
+    if (!this.props.login) {
+      return null;
+    }
     return (
       <section>
         <h2 className="text-center">{this.props.login}'s Followers</h2>
