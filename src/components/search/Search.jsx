@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Search.css";
 
 export default class Search extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export default class Search extends Component {
 
   render() {
     return (
-      <section>
+      <section className="search">
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
