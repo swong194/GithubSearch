@@ -18,7 +18,11 @@ export default class Search extends Component {
     this.props.fetchProfile(this.state.username).then(profile => {
       this.props.receivePage(profile.id, null);
       this.setState({ username: "" });
-      this.props.history.push(`/profiles/${profile.id}`);
+      if (!profile.id) {
+        this.props.history.push("/");
+      } else {
+        this.props.history.push(`/profiles/${profile.id}`);
+      }
     });
   }
 
