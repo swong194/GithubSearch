@@ -37,9 +37,6 @@ export default class Followers extends Component {
       this.props.maxPage === this.props.page ? "no_load" : "load_button";
     return (
       <section>
-        <button className={buttonClass} onClick={this.handleLoad}>
-          Load More
-        </button>
         <h2 className="text-center">{this.props.login} Followers</h2>
         <div className="followers">
           {this.props.followers.map(follower => (
@@ -51,6 +48,9 @@ export default class Followers extends Component {
             </div>
           ))}
         </div>
+        <button className={buttonClass} onClick={this.handleLoad}>
+          Load More
+        </button>
       </section>
     );
   }
